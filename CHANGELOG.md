@@ -1,3 +1,6 @@
+## 0.1.2
+- Fix README
+
 ## 0.1.1
 - Bump version to 0.1.1 for hotfix release.
 
