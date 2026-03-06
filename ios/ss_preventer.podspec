@@ -9,7 +9,10 @@ Flutter plugin that supports screenshot prevention and screenshot detection stre
   s.license          = { :file => '../LICENSE' }
   s.author           = 'dl10yr'
   s.source           = { :path => '.' }
-  s.source_files     = 'Classes/**/*'
+  s.source_files     = 'ss_preventer/Sources/ss_preventer/**/*.swift'
+  s.resource_bundles = {
+    'ss_preventer_privacy' => ['ss_preventer/Sources/ss_preventer/PrivacyInfo.xcprivacy']
+  }
   s.dependency       'Flutter'
   s.platform         = :ios, '13.0'
 
