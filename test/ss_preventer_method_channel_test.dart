@@ -6,7 +6,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   final platform = MethodChannelSsPreventer();
-  const channel = MethodChannel('ss_preventer');
+  const channel = MethodChannel('com.dl10yr.ss_preventer');
 
   final calls = <MethodCall>[];
 
