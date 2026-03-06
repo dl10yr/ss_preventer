@@ -5,13 +5,17 @@ import 'package:ss_preventer/ss_preventer_method_channel.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelSsPreventer platform = MethodChannelSsPreventer();
-  const MethodChannel channel = MethodChannel('ss_preventer');
+  final platform = MethodChannelSsPreventer();
+  const channel = MethodChannel('ss_preventer');
+
+  final calls = <MethodCall>[];
 
   setUp(() {
+    calls.clear();
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
-          return '42';
+          calls.add(methodCall);
+          return null;
         });
   });
 
@@ -20,7 +24,19 @@ void main() {
         .setMockMethodCallHandler(channel, null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await platform.getPlatformVersion(), '42');
+  test('preventOn', () async {
+    await platform.preventOn();
+    expect(calls.single.method, 'preventOn');
+  });
+
+  test('preventOff', () async {
+    await platform.preventOff();
+    expect(calls.single.method, 'preventOff');
+  });
+
+  test('setDetectionEnabled', () async {
+    await platform.setDetectionEnabled(true);
+    expect(calls.single.method, 'setDetectionEnabled');
+    expect(calls.single.arguments, true);
   });
 }

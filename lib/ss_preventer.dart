@@ -1,14 +1,29 @@
-// You have generated a new plugin project without specifying the `--platforms`
-// flag. A plugin project with no platform support was generated. To add a
-// platform, run `flutter create -t plugin --platforms <platforms> .` under the
-// same directory. You can also find a detailed instruction on how to add
-// platforms in the `pubspec.yaml` at
-// https://flutter.dev/to/pubspec-plugin-platforms.
+import 'package:ss_preventer/src/screenshot_event.dart';
 
 import 'ss_preventer_platform_interface.dart';
 
+export 'src/screenshot_event.dart';
+
 class SsPreventer {
-  Future<String?> getPlatformVersion() {
-    return SsPreventerPlatform.instance.getPlatformVersion();
+  const SsPreventer._();
+
+  /// Enable screenshot prevention.
+  static Future<void> preventOn() {
+    return SsPreventerPlatform.instance.preventOn();
+  }
+
+  /// Disable screenshot prevention.
+  static Future<void> preventOff() {
+    return SsPreventerPlatform.instance.preventOff();
+  }
+
+  /// Enable or disable screenshot detection callback stream.
+  static Future<void> setDetectionEnabled(bool enabled) {
+    return SsPreventerPlatform.instance.setDetectionEnabled(enabled);
+  }
+
+  /// Emits an event when a screenshot is detected.
+  static Stream<ScreenshotEvent> get screenshotStream {
+    return SsPreventerPlatform.instance.screenshotStream;
   }
 }

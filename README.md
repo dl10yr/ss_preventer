@@ -1,18 +1,73 @@
 # ss_preventer
 
-A new Flutter plugin project.
+Flutter plugin for screenshot prevention and screenshot detection stream.
 
-## Getting Started
+## Features
+- `preventOn`: enable screenshot prevention.
+- `preventOff`: disable screenshot prevention.
+- `setDetectionEnabled`: enable/disable screenshot detection callbacks.
+- `screenshotStream`: stream event when screenshot is detected.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/to/develop-plugins),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## Platform support
+- Android
+  - `preventOn` / `preventOff`: supported (uses `FLAG_SECURE`).
+  - `screenshotStream`: Android 14+ only (uses `registerScreenCaptureCallback`).
+- iOS
+  - `preventOn` / `preventOff`: supported.
+  - `screenshotStream`: supported (`UIApplication.userDidTakeScreenshotNotification`).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+Add dependency:
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` in this directory.
-You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/to/pubspec-plugin-platforms.
+```yaml
+dependencies:
+  ss_preventer: ^0.1.0
+```
+
+### Android permission (app side)
+To use screenshot detection on Android 14+, add this permission in your app's `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
+```
+
+## Usage
+
+```dart
+import 'dart:async';
+
+import 'package:ss_preventer/ss_preventer.dart';
+
+StreamSubscription? subscription;
+
+Future<void> startProtection() async {
+  await SsPreventer.preventOn();
+  await SsPreventer.setDetectionEnabled(true);
+
+  subscription = SsPreventer.screenshotStream.listen((event) {
+    // Handle screenshot detection.
+    print('Screenshot detected at: ${event.detectedAt}');
+  });
+}
+
+Future<void> stopProtection() async {
+  await SsPreventer.preventOff();
+  await SsPreventer.setDetectionEnabled(false);
+  await subscription?.cancel();
+}
+```
+
+## iOS implementation note
+This plugin follows Flutter's `UISceneDelegate` migration guidance for plugins and uses scene/application lifecycle registration.
+
+Reference:
+- https://docs.flutter.dev/release/breaking-changes/uiscenedelegate#migration-guide-for-flutter-plugins
+
+## Example
+See `/example` for a full sample app.
+
+## Publishing
+See [PUBLISHING.md](PUBLISHING.md).
+
+## License
+MIT. See [LICENSE](LICENSE).

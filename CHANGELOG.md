@@ -1,3 +1,6 @@
-## 0.0.1
+## 0.1.0
 
-* TODO: Describe initial release.
+- Add `preventOn` and `preventOff` APIs.
+- Add `screenshotStream` for screenshot detection.
+- Implement Android and iOS native handlers.
+- Add example app and publishing guide.
