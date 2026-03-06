@@ -25,7 +25,7 @@ class SsPreventerPlugin :
     private var screenCaptureCallback: Activity.ScreenCaptureCallback? = null
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        methodChannel = MethodChannel(binding.binaryMessenger, "com.dl10yr.ss_preventer/methods")
+        methodChannel = MethodChannel(binding.binaryMessenger, "com.dl10yr.ss_preventer")
         methodChannel.setMethodCallHandler(this)
 
         eventChannel = EventChannel(binding.binaryMessenger, "com.dl10yr.ss_preventer/events")
