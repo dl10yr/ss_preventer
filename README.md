@@ -21,7 +21,7 @@ Add dependency:
 
 ```yaml
 dependencies:
-  ss_preventer: ^0.1.0
+  ss_preventer: ^0.1.1
 ```
 
 ### iOS Swift Package Manager

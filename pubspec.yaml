@@ -1,6 +1,6 @@
 name: ss_preventer
 description: Flutter plugin for screenshot prevention and screenshot detection stream on Android/iOS.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/dl10yr/ss_preventer
 repository: https://github.com/dl10yr/ss_preventer
 issue_tracker: https://github.com/dl10yr/ss_preventer/issues

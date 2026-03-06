@@ -2,7 +2,7 @@ PODS:
   - Flutter (1.0.0)
   - integration_test (0.0.1):
     - Flutter
-  - ss_preventer (0.1.0):
+  - ss_preventer (0.1.1):
     - Flutter
   - url_launcher_ios (0.0.1):
     - Flutter
