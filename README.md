@@ -24,6 +24,11 @@ dependencies:
   ss_preventer: ^0.1.0
 ```
 
+### iOS Swift Package Manager
+- Swift Package Manager metadata is included for iOS.
+- Flutter projects using this plugin with SPM need Flutter 3.41 or later.
+- CocoaPods remains supported as a fallback.
+
 ### Android permission (app side)
 To use screenshot detection on Android 14+, add this permission in your app's `AndroidManifest.xml`:
 
@@ -59,6 +64,8 @@ Future<void> stopProtection() async {
 
 ## iOS implementation note
 This plugin follows Flutter's `UISceneDelegate` migration guidance for plugins and uses scene/application lifecycle registration.
+
+Native iOS sources are packaged for both CocoaPods and Swift Package Manager.
 
 Reference:
 - https://docs.flutter.dev/release/breaking-changes/uiscenedelegate#migration-guide-for-flutter-plugins

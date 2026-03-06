@@ -4,3 +4,4 @@
 - Add `screenshotStream` for screenshot detection.
 - Implement Android and iOS native handlers.
 - Add example app and publishing guide.
+- Add iOS Swift Package Manager support.
