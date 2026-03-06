@@ -1,7 +1,7 @@
 import Flutter
 import UIKit
 
-public class SsPreventerPlugin: NSObject, FlutterPlugin {
+public class SsPreventerPlugin: NSObject, FlutterPlugin, FlutterSceneLifeCycleDelegate {
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "ss_preventer", binaryMessenger: registrar.messenger())
     let instance = SsPreventerPlugin()
