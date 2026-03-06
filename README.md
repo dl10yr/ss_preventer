@@ -77,4 +77,4 @@ See `/example` for a full sample app.
 See [PUBLISHING.md](PUBLISHING.md).
 
 ## License
-MIT. See [LICENSE](LICENSE).
+See [LICENSE](LICENSE).
