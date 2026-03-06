@@ -1,4 +1,4 @@
-package com.example.ss_preventer
+package com.dl10yr.ss_preventer
 
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel

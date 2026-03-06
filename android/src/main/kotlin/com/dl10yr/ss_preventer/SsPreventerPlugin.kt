@@ -1,4 +1,4 @@
-package com.example.ss_preventer
+package com.dl10yr.ss_preventer
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall

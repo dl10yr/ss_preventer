@@ -1,4 +1,4 @@
-group = "com.example.ss_preventer"
+group = "com.dl10yr.ss_preventer"
 version = "1.0-SNAPSHOT"
 
 buildscript {
@@ -27,7 +27,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ss_preventer"
+    namespace = "com.dl10yr.ss_preventer"
 
     compileSdk = 36
 
