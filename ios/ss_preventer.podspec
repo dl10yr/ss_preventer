@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ss_preventer'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Screenshot prevention and screenshot detection plugin for Flutter.'
   s.description      = <<-DESC
 Flutter plugin that supports screenshot prevention and screenshot detection stream on iOS.
